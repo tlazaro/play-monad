@@ -1,0 +1,5 @@
+# Display a client.
+
+GET   /                   controllers.HelloController.index
+GET   /hello/:id          controllers.HelloController.hello(id: String)
+POST  /save/:id           controllers.HelloController.save(id: String)

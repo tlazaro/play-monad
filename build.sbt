@@ -1,5 +1,8 @@
 import sbt.Keys.scalacOptions
 
+sonatypeCredentialHost := "s01.oss.sonatype.org"
+sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
+
 inThisBuild(
   List(
     organization := "dev.playmonad",
@@ -29,8 +32,6 @@ lazy val scala_2_13Version = "2.13.5"
 lazy val scalaVersionsAll  = Seq(scala_2_11Version, scala_2_12Version, scala_2_13Version)
 
 lazy val sharedSettings: Seq[Setting[_]] = Seq[Setting[_]](
-  sonatypeCredentialHost := "s01.oss.sonatype.org",
-  sonatypeRepository := "https://s01.oss.sonatype.org/service/local",
   scalaVersion := scala_2_13Version,
   scalacOptions ++= theScalacOptions(scalaVersion.value),
   javacOptions ++= Seq("-encoding", "UTF-8"),

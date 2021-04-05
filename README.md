@@ -2,21 +2,25 @@
 
 This play module provides a simpler alternative to play Actions using for-comprehensions.
 
+NOTE: We just started work on this repository, expect many changes.
+
 ## Preview
 
 Write simple and reusable Play Action's using for-comprehensions.
 
 ```scala
-def action = MonadicAction {
+def saveAction = MonadicAction {
   for {
-    h1 <- header("h1").validate(...)
-    h2 <- header("h2").validate(...)
-    body <- parseBody[A]
+    auth <- header("Authorization")
+    user <- authService.authorize(auth)
+    jsonBody <- body(BodyParsers.parse.tolerantJson)
   } yield {
     // your business logic here
   }
 }
 ```
+
+Each step in the for-comprehension might fail. Just as a `Future` carries the concept of a hidden `Throwable`, this Monad carries a hidde failure `Result` response from Play. If the header is missing a `BadRequest` will be returned, if the authService doesn't authorize the request, a `Forbidden` will be returned and errors processing the body would return other error codes as well.
 
 ## Motivation
 

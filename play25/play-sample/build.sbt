@@ -3,7 +3,7 @@ organization := "io.playmonad"
 
 version := "0.1-SNAPSHOT"
 
-resolvers += Resolver.sonatypeRepo("public")
+resolvers += Resolver.sonatypeRepo("snapshot")
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
@@ -12,4 +12,4 @@ scalaVersion := "2.11.12"
 libraryDependencies += filters
 libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "2.0.1" % Test
 
-libraryDependencies += "dev.playmonad" %% "play25-monad" % "0.1.1"
+libraryDependencies += "dev.playmonad" %% "play25-monad" % "0.1.0"

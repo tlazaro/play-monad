@@ -35,7 +35,7 @@ lazy val sharedSettings: Seq[Setting[_]] = Seq[Setting[_]](
   scalaVersion := scala_2_13Version,
   scalacOptions ++= theScalacOptions(scalaVersion.value),
   javacOptions ++= Seq("-encoding", "UTF-8"),
-  fork in Test := false,
+  Test / fork := false,
   fork := true,
   sonatypeCredentialHost := "s01.oss.sonatype.org",
   sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
@@ -94,4 +94,11 @@ lazy val play25_monad = project
   )
 
 // All projects
-lazy val root = project.in(file(".")).settings(sharedSettings: _*).aggregate(play24_monad, play25_monad)
+lazy val root = project
+  .in(file("."))
+  .settings(
+    sharedSettings ++ Seq[Setting[_]](
+      publish / skip := true
+    ): _*
+  )
+  .aggregate(play24_monad, play25_monad)

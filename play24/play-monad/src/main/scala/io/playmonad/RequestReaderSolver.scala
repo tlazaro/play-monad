@@ -19,7 +19,8 @@ import scala.concurrent.Future
     "\n - The A type is ${A}:" +
     "\n   - It should be play.api.mvc.Result or scala.concurrent.Future[play.api.mvc.Result]." +
     "\n   - Otherwise you are using a custom extension and should import a RequestReaderSolver for this type." +
-    "\n\n")
+    "\n\n"
+)
 trait RequestReaderSolver[R <: RequestReader, A] {
   def makeResult(reader: R, result: A): Iteratee[Array[Byte], Result]
 }

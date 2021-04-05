@@ -42,9 +42,9 @@ object BodyReader {
 }
 
 object MonadicAction {
-  def apply[R <: RequestReader, A](reader: IndexedStateT[EitherT[Future, Result, *], HeaderReader, R, A])(
-      implicit solver: RequestReaderSolver[R, A],
-      mat: Materializer): EssentialAction =
+  def apply[R <: RequestReader, A](
+      reader: IndexedStateT[EitherT[Future, Result, *], HeaderReader, R, A]
+  )(implicit solver: RequestReaderSolver[R, A], mat: Materializer): EssentialAction =
     EssentialAction { request =>
       Accumulator.flatten(reader.run(HeaderReader(request)).value.map {
         case Right((r, a)) => solver.makeResult(r, a)

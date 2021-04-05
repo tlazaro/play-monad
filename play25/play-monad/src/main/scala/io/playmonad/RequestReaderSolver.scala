@@ -20,7 +20,8 @@ import scala.concurrent.Future
     "\n - The A type is ${A}:" +
     "\n   - It should be play.api.mvc.Result or scala.concurrent.Future[play.api.mvc.Result]." +
     "\n   - Otherwise you are using a custom extension and should import a RequestReaderSolver for this type." +
-    "\n\n")
+    "\n\n"
+)
 trait RequestReaderSolver[R <: RequestReader, A] {
   def makeResult(reader: R, result: A): Accumulator[ByteString, Result]
 }
@@ -29,21 +30,24 @@ object RequestReaderSolver {
 
   /** A HeaderReader of Result can be turned into a Play Action */
   implicit object HeaderResultSolver extends RequestReaderSolver[HeaderReader, Result] {
-    override def makeResult(reader: HeaderReader, result: Result): Accumulator[ByteString, Result] = Accumulator.done(result)
+    override def makeResult(reader: HeaderReader, result: Result): Accumulator[ByteString, Result] =
+      Accumulator.done(result)
   }
 
   /** A BodyReader of Result can be turned into a Play Action */
-  implicit def BodyResultSolver[A]: RequestReaderSolver[BodyReader[A], Result] = new RequestReaderSolver[BodyReader[A], Result] {
-    override def makeResult(reader: BodyReader[A], result: Result): Accumulator[ByteString, Result] =
-      reader.accumulator.mapFuture {
-        case Left(errorResult) => Future.successful(errorResult)
-        case Right(_)          => Future.successful(result)
-      }
-  }
+  implicit def BodyResultSolver[A]: RequestReaderSolver[BodyReader[A], Result] =
+    new RequestReaderSolver[BodyReader[A], Result] {
+      override def makeResult(reader: BodyReader[A], result: Result): Accumulator[ByteString, Result] =
+        reader.accumulator.mapFuture {
+          case Left(errorResult) => Future.successful(errorResult)
+          case Right(_)          => Future.successful(result)
+        }
+    }
 
   /** A HeaderReader of Future[Result] can be turned into a Play Action */
   implicit object HeaderFutureResultSolver extends RequestReaderSolver[HeaderReader, Future[Result]] {
-    override def makeResult(reader: HeaderReader, result: Future[Result]): Accumulator[ByteString, Result] = Accumulator.done(result)
+    override def makeResult(reader: HeaderReader, result: Future[Result]): Accumulator[ByteString, Result] =
+      Accumulator.done(result)
   }
 
   /** A BodyReader of Future[Result] can be turned into a Play Action */

@@ -36,7 +36,9 @@ lazy val sharedSettings: Seq[Setting[_]] = Seq[Setting[_]](
   scalacOptions ++= theScalacOptions(scalaVersion.value),
   javacOptions ++= Seq("-encoding", "UTF-8"),
   fork in Test := false,
-  fork := true
+  fork := true,
+  sonatypeCredentialHost := "s01.oss.sonatype.org",
+  sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
 )
 
 def theScalacOptions(scalaVersion: String): Seq[String] =

@@ -2,7 +2,7 @@ package controllers
 
 import cats.implicits._
 import controllers.Assets.{Forbidden, Ok}
-import io.playmonad._
+import dev.playmonad._
 import play.api.Play._
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 import play.api.mvc.BodyParsers

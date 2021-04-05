@@ -1,4 +1,4 @@
-package io.playmonad
+package dev.playmonad
 
 import akka.stream.Materializer
 import akka.util.ByteString

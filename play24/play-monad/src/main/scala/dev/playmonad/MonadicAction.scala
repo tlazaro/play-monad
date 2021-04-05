@@ -1,4 +1,4 @@
-package io.playmonad
+package dev.playmonad
 
 import cats.data.{EitherT, IndexedStateT}
 import cats.instances.future._

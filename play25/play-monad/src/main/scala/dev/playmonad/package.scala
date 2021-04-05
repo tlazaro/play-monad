@@ -1,4 +1,4 @@
-package io
+package dev
 
 import controllers.Assets.BadRequest
 import play.api.mvc.BodyParser

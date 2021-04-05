@@ -25,3 +25,6 @@ target/
 # .data
 .data
 
+# Build Servers
+.bsp
+.metals

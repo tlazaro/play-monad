@@ -77,7 +77,7 @@ lazy val play25_monad = project.in(file("play25/play-monad")).settings(sharedSet
   crossScalaVersions := List(scala_2_11Version),
 
   libraryDependencies ++= Seq(
-    "org.typelevel"              %% "cats-core"     % "2.0.0",
+    "org.typelevel"              %% "cats-core"     % theCatsVersion(scalaVersion.value),
     "com.typesafe.play" %% "play" % "2.5.19",
     "org.scalatest"              %% "scalatest"     % "3.2.7" % "test",
   ),

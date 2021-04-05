@@ -17,7 +17,9 @@ inThisBuild(List(
       "ioniviil@gmail.com",
       url("https://github.com/rcano")
     )
-  )
+  ),
+  sonatypeCredentialHost := "s01.oss.sonatype.org",
+  sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
 ))
 
 lazy val scala_2_10Version = "2.10.7"

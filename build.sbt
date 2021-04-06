@@ -59,6 +59,25 @@ def theCatsVersion(scalaVersion: String): String =
     case _             => throw new IllegalArgumentException(s"Unsupported Scala version $scalaVersion")
   }
 
+// Play 2.3
+lazy val play23_monad = project
+  .in(file("play23/play-monad"))
+  .settings(
+    sharedSettings ++ Seq[Setting[_]](
+      name := "play23-monad",
+      scalaVersion := scala_2_11Version,
+      crossScalaVersions := List(scala_2_11Version, scala_2_10Version),
+      libraryDependencies ++= Seq(
+        "org.typelevel"      %% "cats-core"            % theCatsVersion(scalaVersion.value),
+        "com.typesafe.play"  %% "play"                 % "2.3.10",
+        "org.scalatest"      %% "scalatest"            % "3.2.7" % "test"
+      ),
+      addCompilerPlugin("org.typelevel" % "kind-projector" % "0.11.3" cross CrossVersion.full),
+      // The Typesafe repository
+      resolvers += "Typesafe repository" at "https://repo.typesafe.com/typesafe/releases/"
+    ): _*
+  )
+
 // Play 2.4
 lazy val play24_monad = project
   .in(file("play24/play-monad"))
@@ -101,4 +120,4 @@ lazy val root = project
       publish / skip := true
     ): _*
   )
-  .aggregate(play24_monad, play25_monad)
+  .aggregate(play23_monad, play24_monad, play25_monad)

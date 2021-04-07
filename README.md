@@ -1,18 +1,30 @@
 # play-monad
 
-`Play 2.4` [![Maven Central](https://img.shields.io/maven-central/v/dev.playmonad/play24-monad_2.11.svg)](https://maven-badges.herokuapp.com/maven-central/dev.playmonad/play24-monad_2.11)
-`Play 2.5` [![Maven Central](https://img.shields.io/maven-central/v/dev.playmonad/play25-monad_2.11.svg)](https://maven-badges.herokuapp.com/maven-central/dev.playmonad/play25-monad_2.11)
-
-
 This play module provides a simpler alternative to play Actions using for-comprehensions.
 
 NOTE: We just started work on this repository, expect many changes.
 
-```scala
-libraryDependencies += "dev.playmonad" %% "play24-monad" % VERSION
-// or
-libraryDependencies += "dev.playmonad" %% "play25-monad" % VERSION
-```
+## Versions
+
+|            | Scala 2.10 | Scala 2.11 | Scala 2.12 | Scala 2.13 |
+|------------|------------|------------|------------|------------|
+| Play 2.3   |[![Maven Central](https://img.shields.io/maven-central/v/dev.playmonad/play23-monad_2.10.svg)](https://maven-badges.herokuapp.com/maven-central/dev.playmonad/play23-monad_2.10)|[![Maven Central](https://img.shields.io/maven-central/v/dev.playmonad/play23-monad_2.11.svg)](https://maven-badges.herokuapp.com/maven-central/dev.playmonad/play23-monad_2.11)|||
+| Play 2.4   |[![Maven Central](https://img.shields.io/maven-central/v/dev.playmonad/play24-monad_2.10.svg)](https://maven-badges.herokuapp.com/maven-central/dev.playmonad/play24-monad_2.10)|[![Maven Central](https://img.shields.io/maven-central/v/dev.playmonad/play24-monad_2.11.svg)](https://maven-badges.herokuapp.com/maven-central/dev.playmonad/play24-monad_2.11)|||
+| Play 2.5   ||[![Maven Central](https://img.shields.io/maven-central/v/dev.playmonad/play25-monad_2.11.svg)](https://maven-badges.herokuapp.com/maven-central/dev.playmonad/play25-monad_2.11)|||
+| Play 2.6   ||[![Maven Central](https://img.shields.io/maven-central/v/dev.playmonad/play26-monad_2.11.svg)](https://maven-badges.herokuapp.com/maven-central/dev.playmonad/play26-monad_2.11)|[![Maven Central](https://img.shields.io/maven-central/v/dev.playmonad/play26-monad_2.12.svg)](https://maven-badges.herokuapp.com/maven-central/dev.playmonad/play26-monad_2.12)||
+| Play 2.7   ||[![Maven Central](https://img.shields.io/maven-central/v/dev.playmonad/play27-monad_2.11.svg)](https://maven-badges.herokuapp.com/maven-central/dev.playmonad/play27-monad_2.11)|[![Maven Central](https://img.shields.io/maven-central/v/dev.playmonad/play27-monad_2.12.svg)](https://maven-badges.herokuapp.com/maven-central/dev.playmonad/play27-monad_2.12)|[![Maven Central](https://img.shields.io/maven-central/v/dev.playmonad/play27-monad_2.13.svg)](https://maven-badges.herokuapp.com/maven-central/dev.playmonad/play27-monad_2.13)|
+| Play 2.8   |||[![Maven Central](https://img.shields.io/maven-central/v/dev.playmonad/play28-monad_2.12.svg)](https://maven-badges.herokuapp.com/maven-central/dev.playmonad/play28-monad_2.12)|[![Maven Central](https://img.shields.io/maven-central/v/dev.playmonad/play28-monad_2.13.svg)](https://maven-badges.herokuapp.com/maven-central/dev.playmonad/play28-monad_2.13)|
+
+To add to your project, include this depedency in the `build.sbt` file:
+
+|            | SBT Dependency |
+|------------|----------------|
+| Play 2.3   |`libraryDependencies += "dev.playmonad" %% "play23-monad" % VERSION`|
+| Play 2.4   |`libraryDependencies += "dev.playmonad" %% "play24-monad" % VERSION`|
+| Play 2.5   |`libraryDependencies += "dev.playmonad" %% "play25-monad" % VERSION`|
+| Play 2.6   |`libraryDependencies += "dev.playmonad" %% "play26-monad" % VERSION`|
+| Play 2.7   |`libraryDependencies += "dev.playmonad" %% "play27-monad" % VERSION`|
+| Play 2.8   |`libraryDependencies += "dev.playmonad" %% "play28-monad" % VERSION`|
 
 ## Preview
 

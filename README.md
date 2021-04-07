@@ -1,8 +1,18 @@
 # play-monad
 
+`Play 2.4` [![Maven Central](https://img.shields.io/maven-central/v/dev.playmonad/play24-monad_2.11.svg)](https://maven-badges.herokuapp.com/maven-central/dev.playmonad/play24-monad_2.11)
+`Play 2.5` [![Maven Central](https://img.shields.io/maven-central/v/dev.playmonad/play25-monad_2.11.svg)](https://maven-badges.herokuapp.com/maven-central/dev.playmonad/play25-monad_2.11)
+
+
 This play module provides a simpler alternative to play Actions using for-comprehensions.
 
 NOTE: We just started work on this repository, expect many changes.
+
+```scala
+libraryDependencies += "dev.playmonad" %% "play24-monad" % VERSION
+// or
+libraryDependencies += "dev.playmonad" %% "play25-monad" % VERSION
+```
 
 ## Preview
 

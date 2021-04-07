@@ -1,5 +1,5 @@
 name := "Play 2.5 Monadic Sample"
-organization := "io.playmonad"
+organization := "dev.playmonad"
 
 version := "0.1-SNAPSHOT"
 

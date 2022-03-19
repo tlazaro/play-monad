@@ -6,7 +6,6 @@ import dev.playmonad._
 import play.api.Play._
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 import play.api.mvc.BodyParsers
-import play.api.mvc.Action
 
 import scala.concurrent.Future
 
@@ -36,9 +35,7 @@ class HelloController {
       _        <- auth(name)
       jsonBody <- body(BodyParsers.parse.tolerantJson)
     } yield {
-      jsonBody.map { json =>
-        Ok(s"Hello $name, from $agent and ${json.toString()}")
-      }
+      jsonBody.map(json => Ok(s"Hello $name, from $agent and $json"))
     }
   }
 }

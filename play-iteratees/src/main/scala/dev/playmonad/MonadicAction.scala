@@ -9,7 +9,6 @@ import scala.concurrent.{ExecutionContext, Future, Promise}
 
 sealed trait RequestReader
 case class HeaderReader(requestHeader: RequestHeader)                           extends RequestReader
-case class HeaderReaderHeaderReader(requestHeader: RequestHeader)               extends RequestReader
 case class BodyReader[A](accumulator: Iteratee[Array[Byte], Either[Result, A]]) extends RequestReader
 
 trait MonadicActionImplicits {

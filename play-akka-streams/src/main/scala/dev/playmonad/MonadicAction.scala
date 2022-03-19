@@ -58,7 +58,7 @@ object HeaderReader extends MonadicActionImplicits {
 object BodyReader extends MonadicActionImplicits {
   type Aux[Body, A] = IndexedStateT[EitherT[Future, Result, *], HeaderReader, BodyReader[Body], Future[A]]
 
-  def apply[A](bodyParser: BodyParser[A]): BodyReader.Aux[A, A] =
+  def withBody[A](bodyParser: BodyParser[A]): BodyReader.Aux[A, A] =
     IndexedStateT[EitherT[Future, Result, *], HeaderReader, BodyReader[A], Future[A]] { state =>
       val promise = Promise[A]()
 
